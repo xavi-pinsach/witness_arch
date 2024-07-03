@@ -52,6 +52,6 @@ impl WCLibrary for Zisk {
 
 impl Executor for Zisk {
     fn execute(&self) {
-        self.main_sm.execute();
+        self.wcm.execute();
     }
 }

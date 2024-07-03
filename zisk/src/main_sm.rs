@@ -24,24 +24,24 @@ impl MainSM {
 
 impl WCComponent for MainSM {
     fn start_proof(&self) {
-        println!("{}: Starting proof main SM", Self::MY_NAME);
+        println!("{}: Starting proof", Self::MY_NAME);
     }
 
     fn end_proof(&self) {
-        println!("{}: Ending proof main SM", Self::MY_NAME);
+        println!("{}: Ending proof", Self::MY_NAME);
     }
 
     fn get_layout(&self) {
-        println!("{}: Getting layout main SM", Self::MY_NAME);
+        println!("{}: Getting layout", Self::MY_NAME);
     }
 
     fn calculate_witness(&self) {
-        println!("{}: Calculating witness main SM", Self::MY_NAME);
+        println!("{}: Calculating witness", Self::MY_NAME);
     }
 }
 
 impl Executor for MainSM {
     fn execute(&self) {
-        println!("{}: Executing main SM", Self::MY_NAME);
+        println!("{}: Executing", Self::MY_NAME);
     }
 }
