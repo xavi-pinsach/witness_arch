@@ -18,9 +18,9 @@ impl Zisk {
         let main_sm = MainSM::new(&mut wcm, &mem_sm);
 
         wcm.on_execute({
-            let main_sm = Rc::clone(&main_sm); // Capture main_sm by reference
+            let main_sm = Rc::clone(&main_sm);
             move || {
-                main_sm.execute(); // Execute main_sm within the closure
+                main_sm.execute();
             }
         });
 
