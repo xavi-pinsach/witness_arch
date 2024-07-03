@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "main",
+    "wchelpers",
+    "zisk",
+]
+
+resolver = "2"
