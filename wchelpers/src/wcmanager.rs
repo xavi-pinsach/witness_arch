@@ -26,28 +26,28 @@ impl WCManager {
     }
     
     pub fn start_proof(&mut self) {
-        println!("{}: Starting proof WCManager", Self::MY_NAME);
+        println!("{}: Starting proof", Self::MY_NAME);
         for component in self.components.iter() {
             component.start_proof();
         }
     }
 
     pub fn end_proof(&mut self) {
-        println!("{}: Ending proof WCManager", Self::MY_NAME);
+        println!("{}: Ending proof", Self::MY_NAME);
         for component in self.components.iter() {
             component.end_proof();
         }
     }
 
     pub fn get_layout(&mut self) {
-        println!("{}: Getting layout WCManager", Self::MY_NAME);
+        println!("{}: Getting layout", Self::MY_NAME);
         for component in self.components.iter() {
             component.get_layout();
         }
     }
 
     pub fn calculate_witness(&mut self) {
-        println!("{}: Calculating witness WCManager", Self::MY_NAME);
+        println!("{}: Calculating witness", Self::MY_NAME);
         for component in self.components.iter() {
             component.calculate_witness();
         }
