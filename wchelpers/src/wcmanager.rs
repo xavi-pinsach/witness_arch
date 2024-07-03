@@ -1,10 +1,10 @@
 use std::rc::Rc;
 
-use crate::WCComponent;
+use crate::{Executor, WCComponent};
 
 pub struct WCManager {
     components: Vec<Rc<dyn WCComponent>>,
-    on_execute_fn: Option<Rc<dyn Fn() -> ()>>,
+    executors: Vec<Rc<dyn Executor>>,
 }
 
 impl WCManager {
@@ -13,7 +13,7 @@ impl WCManager {
     pub fn new() -> Self {
         WCManager {
             components: Vec::new(),
-            on_execute_fn: None,
+            executors: Vec::new(),
         }
     }
 
@@ -21,6 +21,10 @@ impl WCManager {
         self.components.push(mem_sm);
     }
 
+    pub fn register_executor(&mut self, executor: Rc<dyn Executor>) {
+        self.executors.push(executor);
+    }
+    
     pub fn start_proof(&mut self) {
         println!("{}: Starting proof WCManager", Self::MY_NAME);
         for component in self.components.iter() {
@@ -49,10 +53,10 @@ impl WCManager {
         }
     }
 
-    pub fn on_execute<F>(&mut self, f: F)
-    where
-        F: Fn() + 'static,
-    {
-        self.on_execute_fn = Some(Rc::new(f));
+    pub fn execute(&self) {
+        println!("{}: Executing", Self::MY_NAME);
+        for executor in self.executors.iter() {
+            executor.execute();
+        }
     }
 }

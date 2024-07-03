@@ -17,7 +17,7 @@ impl MainSM {
             mem_sm: Rc::clone(&mem_sm),
         });
         wcm.register_component(Rc::clone(&main_sm) as Rc<dyn WCComponent>);
-
+        wcm.register_executor(Rc::clone(&main_sm) as Rc<dyn Executor>);
         main_sm
     }
 }

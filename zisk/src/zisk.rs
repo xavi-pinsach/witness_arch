@@ -17,13 +17,6 @@ impl Zisk {
         let mem_sm = MemSM::new(&mut wcm);
         let main_sm = MainSM::new(&mut wcm, &mem_sm);
 
-        wcm.on_execute({
-            let main_sm = Rc::clone(&main_sm);
-            move || {
-                main_sm.execute();
-            }
-        });
-
         Zisk {
             wcm,
             main_sm,
@@ -52,6 +45,6 @@ impl WCLibrary for Zisk {
 
 impl Executor for Zisk {
     fn execute(&self) {
-        self.main_sm.execute();
+        self.wcm.execute();
     }
 }
